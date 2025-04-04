@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('guarantee_reviews', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('guarantee_id')->constrained()->onDelete('cascade');
+            $table->enum('status', ['Pending', 'Approved', 'Rejected'])->default('Pending');
+            $table->text('comments')->nullable();
+            $table->foreignId('reviewer_id')->nullable()->constrained('users');
+            $table->timestamp('reviewed_at')->nullable();
             $table->timestamps();
         });
     }
