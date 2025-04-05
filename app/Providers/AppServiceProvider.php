@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
         // Bind repositories to their interfaces
         $this->app->bind(GuaranteeRepositoryInterface::class, GuaranteeRepository::class);
         $this->app->bind(UploadedFileRepositoryInterface::class, UploadedFileRepository::class);
+        
     }
 
     /**

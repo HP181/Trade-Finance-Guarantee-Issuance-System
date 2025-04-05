@@ -18,11 +18,8 @@ class UploadedFileRepository implements UploadedFileRepositoryInterface
      protected $uploadedFileRepository;
     protected $fileParserService;
     public function __construct(
-        UploadedFileRepositoryInterface $uploadedFileRepository,
-        FileParserService $fileParserService
+        FileParserService $fileParserService = null
     ) {
-        // $this->middleware('auth');
-        $this->uploadedFileRepository = $uploadedFileRepository;
         $this->fileParserService = $fileParserService;
     }
     

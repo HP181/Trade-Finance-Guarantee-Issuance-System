@@ -69,14 +69,25 @@ class FileUploadController extends Controller
      */
     public function process(UploadedFile $file)
     {
-        $result = $this->fileParserService->processFile($file);
-        
-        if ($result['success']) {
+        // Check if fileParserService is available
+        if (!$this->fileParserService) {
+            // Option 1: Resolve the service manually
+            $this->fileParserService = app(FileParserService::class);
+        }
+    
+        try {
+            $result = $this->fileParserService->processFile($file);
+            
+            if ($result['success']) {
+                return redirect()->route('files.index')
+                    ->with('success', 'File processed successfully. Created ' . ($result['results']['success'] ?? 0) . ' guarantees.');
+            } else {
+                return redirect()->route('files.index')
+                    ->with('error', 'Failed to process file: ' . ($result['error'] ?? 'Unknown error'));
+            }
+        } catch (\Exception $e) {
             return redirect()->route('files.index')
-                ->with('success', 'File processed successfully. Created ' . $result['results']['success'] . ' guarantees.');
-        } else {
-            return redirect()->route('files.index')
-                ->with('error', 'Failed to process file: ' . $result['error']);
+                ->with('error', 'Error processing file: ' . $e->getMessage());
         }
     }
 
