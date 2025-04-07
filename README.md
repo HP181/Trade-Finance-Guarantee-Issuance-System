@@ -74,8 +74,8 @@ The Trade Finance Guarantee Issuance System helps financial institutions streaml
 
 1. Clone the repository:
    ```
-    git clone https://github.com/yourusername/TradeFinanceGuaranteeSystem.git
-    cd TradeFinanceGuaranteeSystem
+    git clone https://github.com/HP181/Trade-Finance-Guarantee-Issuance-System.git
+    cd Trade-Finance-Guarantee-Issuance-System
 
 2. Start the containers:
    ```
@@ -112,8 +112,8 @@ The Trade Finance Guarantee Issuance System helps financial institutions streaml
 
 1. Clone the repository:
    ```
-    git clone https://github.com/yourusername/TradeFinanceGuaranteeSystem.git
-    cd TradeFinanceGuaranteeSystem
+    git clone https://github.com/HP181/Trade-Finance-Guarantee-Issuance-System.git
+    cd Trade-Finance-Guarantee-Issuance-System
 
 2. Install dependencies:
    ```
