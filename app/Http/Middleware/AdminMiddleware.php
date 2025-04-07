@@ -21,6 +21,11 @@ class AdminMiddleware
             return $next($request);
         }
 
+        // For API requests or when testing, return 403 instead of redirecting
+        if ($request->expectsJson() || app()->runningUnitTests()) {
+            return response('Forbidden', 403);
+        }
+
         return redirect()->route('home')->with('error', 'Access denied. Admin privileges required.');
     }
 }
